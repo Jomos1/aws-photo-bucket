@@ -1,19 +1,16 @@
 'use strict';
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3();
+const params = { Bucket: 'photo-bucket-tmp-prjct'};
 
-module.exports.hello = (event, context, callback) => {
+s3.listObjects(params, module.exports.hello = (event, context, callback) => {
   const response = {
     statusCode: 200,
-    const AWS = require('aws-sdk');
-    const s3 = new AWS.S3();
-    const params = { Bucket: 'photo-bucket-tmp-prjct'};
     body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
+      message: 'shhinei',
       input: event,
     }),
   };
 
   callback(null, response);
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
-};
+});
